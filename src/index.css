@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+@theme {
+  /* ── Colors ── */
+  --color-surface:                   #0f131f;
+  --color-surface-dim:               #0f131f;
+  --color-surface-bright:            #353946;
+  --color-surface-container:         #1b1f2c;
+  --color-surface-container-low:     #171b28;
+  --color-surface-container-high:    #262a37;
+  --color-surface-container-highest: #313442;
+  --color-surface-container-lowest:  #0a0e1a;
+  --color-surface-variant:           #313442;
+  --color-on-surface:                #dfe2f3;
+  --color-on-surface-variant:        #c4c7c8;
+  --color-background:                #0f131f;
+  --color-on-background:             #dfe2f3;
+  --color-primary:                   #ffffff;
+  --color-on-primary:                #2f3131;
+  --color-secondary:                 #bac5ee;
+  --color-secondary-container:       #3c486a;
+  --color-on-secondary-container:    #acb7df;
+  --color-outline:                   #8e9192;
+  --color-outline-variant:           #444748;
+  --color-error:                     #ffb4ab;
+  --color-inverse-surface:           #dfe2f3;
+  --color-inverse-on-surface:        #2c303d;
+
+  /* ── Font Families ── */
+  --font-headline-xl:       "Playfair Display", serif;
+  --font-headline-lg:       "Playfair Display", serif;
+  --font-headline-lg-mobile:"Playfair Display", serif;
+  --font-body-md:           "Plus Jakarta Sans", sans-serif;
+  --font-label-sm:          "Plus Jakarta Sans", sans-serif;
+
+  /* ── Font Sizes ── */
+  --text-headline-xl:        80px;
+  --text-headline-lg:        48px;
+  --text-headline-lg-mobile: 32px;
+  --text-body-md:            16px;
+  --text-label-sm:           12px;
+
+  /* ── Spacing (custom tokens) ── */
+  --spacing-gutter:        1.5rem;
+  --spacing-stack-md:      1.5rem;
+  --spacing-stack-sm:      0.5rem;
+  --spacing-section-gap:   5rem;
+  --spacing-margin-mobile: 1rem;
+
+  /* ── Max widths ── */
+  --width-container-max: 1200px;
+}
+
+/* ── Custom utilities ── */
+.glass-card {
+  background: rgba(30, 42, 74, 0.4);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glow-text {
+  text-shadow:
+    0 0 15px rgba(255, 255, 255, 0.8),
+    0 0 30px rgba(255, 255, 255, 0.5);
+}
+
+.glow-button {
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+body {
+  min-height: max(884px, 100dvh);
+}
