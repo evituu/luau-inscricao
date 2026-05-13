@@ -126,7 +126,7 @@ export default function Formulario() {
       <div ref={cardRef} className="max-w-md mx-auto glass-card rounded-2xl p-8 border border-white/10">
         {!enviado ? (
           <div className="text-center mb-8">
-            <h3 className="font-headline-lg-mobile text-headline-lg-mobile text-primary mb-2">
+            <h3 className="font-headline-lg-mobile font-extrabold text-headline-lg-mobile text-primary mb-2">
               Garanta sua Presença!
             </h3>
             <p className="font-body-md text-body-md text-on-surface-variant">
