@@ -105,14 +105,48 @@ export default function Formulario() {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+
     const novosErros = validar(campos);
     setErros(novosErros);
+
     if (Object.keys(novosErros).length > 0) return;
 
     setCarregando(true);
-    await new Promise((res) => setTimeout(res, 1200));
-    setCarregando(false);
-    setEnviado(true);
+
+    try {
+      const GOOGLE_SCRIPT_URL = import.meta.env.VITE_GOOGLE_SCRIPT_URL as string;
+
+      if (!GOOGLE_SCRIPT_URL) {
+        throw new Error("VITE_GOOGLE_SCRIPT_URL não configurada.");
+      }
+
+      const payload = {
+        nome: campos.nome.trim(),
+        email: campos.email.trim(),
+        telefone: campos.telefone.trim(),
+      };
+
+      console.log("Enviando dados para o Google Sheets:", payload);
+
+      await fetch(GOOGLE_SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "text/plain;charset=utf-8",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      console.log("Requisição enviada para o Google Sheets.");
+
+      setEnviado(true);
+
+    } catch (error) {
+      console.error("Erro ao enviar:", error);
+      alert("Houve um erro ao enviar sua inscrição. Tente novamente.");
+    } finally {
+      setCarregando(false);
+    }
   };
 
   const borda = (campo: keyof Erros) =>
